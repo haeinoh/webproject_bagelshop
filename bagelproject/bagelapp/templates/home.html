@@ -1,0 +1,66 @@
+{% extends "default.html" %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<!-- start top bar -->
+<header class="header">
+  <div class="top-bar" id="main-menu">
+    <div class="top-bar-left">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="menu-text">Coffee Site</li>
+        {% if user.is_authenticated %}
+        <li><a href="/blogcreate">Create Blog Post</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu>
+        {% if user.is_authenticated %}
+        <li><a href="/logout/">Logout</a></li>
+        {% else %}
+        <li><a href="/login/">Log In</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</header>
+<!-- end top bar -->
+<div class="row">
+  <div class="large-5 columns">
+    <form action="" method="post">
+      {% csrf_token %}
+        <div class="row">
+         <div class="large-12 columns">
+           <div class="input-group-field">
+             {{ form.errors}}
+             {{ form.suggestion.label}}
+             {{ form.suggestion}}
+           </div>
+           <div class="input-group-button">
+             <div class="large-12 columns">
+               <input type="submit" value="Submit"
+                class="small hollow button">
+             </div>
+           </div>
+        <!--{{ form.as_p }} -->
+         </div>
+        </div>
+    </form>
+  </div>
+  <div class="large-7 columns">
+     <h4 align="center" style="background-color:#E5EBF7">
+     <a href="suggest_list">Suggestions</a></h4>
+     <div id="suggest_list">
+       <ul>
+         {% for element in content %}
+         <li>{{ element.suggestion}}</li>
+         {% endfor %}
+       </ul>
+     </div>
+   </div>
+</div>
+{% endblock %}
