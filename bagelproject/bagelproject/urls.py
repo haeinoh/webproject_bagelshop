@@ -22,11 +22,14 @@ from bagelapp.forms import LoginForm
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^',include('bagelapp.urls')),
-    url(r'login/$', views.login,){
+    url(r'login/$', views.login,{
         'template_name':'login.html',
         'authentication_form':LoginForm
     }, name="login"),
     url(r'logout/$', views.logout,{
         'next_page':'/login'
     }),
+    url(r'menu/$',views.menu,{
+        'template_name':'menu.html',
+    }, name="menu"),
 ]

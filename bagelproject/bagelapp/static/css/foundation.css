@@ -450,7 +450,8 @@ img {
   vertical-align: middle;
   max-width: 100%;
   height: auto;
-  -ms-interpolation-mode: bicubic; }
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;}
 
 textarea {
   height: auto;

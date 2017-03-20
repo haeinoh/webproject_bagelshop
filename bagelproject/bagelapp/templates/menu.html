@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Create Blog Entry {% endblock %}
+
+{% block content %}
+<div class="top-bar" id="main-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Coffee Site</li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="dropdown menu" data-dropdown-menu>
+      {% if user.is_authenticated %}
+      <li><a href="/logout/">Logout</a></li>
+      {% else %}
+      <li class="menu-text">Log In</li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+{% if user.is_authenticated %}
+<div class="row">
+  <div class="medium-6 medium-centered large-4 large-centered columns">
+    <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="row column log-in-form">
+        <h4 class="text-center">Create Blog Entry</h4>
+        {{ form.errors }}
+        <label>{{ form.title.label_tag }}
+          {{ form.title }}
+        </label>
+        <label>{{ form.content.label_tag }}
+          {{ form.content }}
+        </label>
+        <label>{{ form.image_description.label_tag }}
+          {{ form.image_description }}
+        </label>
+        <label>{{ form.image.label_tag }}
+          {{ form.image }}
+        </label>
+        <input type="submit" class="button expanded" value="Post">
+      </div>
+    </form>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

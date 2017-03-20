@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-{{ title }}
+J&S Bagel
 {% endblock %}
 
 {% block content %}
@@ -11,9 +11,11 @@
   <div class="top-bar" id="main-menu">
     <div class="top-bar-left">
       <ul class="dropdown menu" data-dropdown-menu>
-        <li class="menu-text">Coffee Site</li>
+        <li class="menu-text">J&S Bagel</li>
+        <li><a href="/menu">MENU</a></li>
+        <li><a href="/custom_recipe">CUSTOM RECIPE</a></li>
         {% if user.is_authenticated %}
-        <li><a href="/blogcreate">Create Blog Post</a></li>
+        <li><a href="/order">ORDER</a></li>
         {% endif %}
       </ul>
     </div>
@@ -29,38 +31,5 @@
   </div>
 </header>
 <!-- end top bar -->
-<div class="row">
-  <div class="large-5 columns">
-    <form action="" method="post">
-      {% csrf_token %}
-        <div class="row">
-         <div class="large-12 columns">
-           <div class="input-group-field">
-             {{ form.errors}}
-             {{ form.suggestion.label}}
-             {{ form.suggestion}}
-           </div>
-           <div class="input-group-button">
-             <div class="large-12 columns">
-               <input type="submit" value="Submit"
-                class="small hollow button">
-             </div>
-           </div>
-        <!--{{ form.as_p }} -->
-         </div>
-        </div>
-    </form>
-  </div>
-  <div class="large-7 columns">
-     <h4 align="center" style="background-color:#E5EBF7">
-     <a href="suggest_list">Suggestions</a></h4>
-     <div id="suggest_list">
-       <ul>
-         {% for element in content %}
-         <li>{{ element.suggestion}}</li>
-         {% endfor %}
-       </ul>
-     </div>
-   </div>
-</div>
+      <img src="{% static "test_bagel.png" %}" alt="test bagel"/>
 {% endblock %}
