@@ -29,7 +29,4 @@ urlpatterns = [
     url(r'logout/$', views.logout,{
         'next_page':'/login'
     }),
-    url(r'menu/$',views.menu,{
-        'template_name':'menu.html',
-    }, name="menu"),
 ]

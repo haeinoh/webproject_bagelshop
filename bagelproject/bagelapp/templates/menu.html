@@ -1,49 +1,49 @@
-{% extends "base.html" %}
+{% extends "default.html" %}
 {% load static %}
 
-{% block title %} Create Blog Entry {% endblock %}
+{% block title %}
+{{ title }}
+{% endblock %}
 
 {% block content %}
-<div class="top-bar" id="main-menu">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">Coffee Site</li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="dropdown menu" data-dropdown-menu>
-      {% if user.is_authenticated %}
-      <li><a href="/logout/">Logout</a></li>
-      {% else %}
-      <li class="menu-text">Log In</li>
-      {% endif %}
-    </ul>
+<div class="row">
+  <div class="large-12 columns">
+    <h1><a href="">Community</a></h1>
+    <!-- <p>{{ submit }}</p> -->
   </div>
 </div>
-{% if user.is_authenticated %}
 <div class="row">
-  <div class="medium-6 medium-centered large-4 large-centered columns">
-    <form method="post" action="" enctype="multipart/form-data">
+  <div class="large-5 columns">
+    <form action="" method="post">
       {% csrf_token %}
-      <div class="row column log-in-form">
-        <h4 class="text-center">Create Blog Entry</h4>
-        {{ form.errors }}
-        <label>{{ form.title.label_tag }}
-          {{ form.title }}
-        </label>
-        <label>{{ form.content.label_tag }}
-          {{ form.content }}
-        </label>
-        <label>{{ form.image_description.label_tag }}
-          {{ form.image_description }}
-        </label>
-        <label>{{ form.image.label_tag }}
-          {{ form.image }}
-        </label>
-        <input type="submit" class="button expanded" value="Post">
-      </div>
+        <div class="row">
+         <div class="large-12 columns">
+           <div class="input-group-field">
+             {{ form.errors}}
+             {{ form.menu.label}}
+             {{ form.menu}}
+           </div>
+           <div class="input-group-button">
+             <div class="large-12 columns">
+               <input type="submit" value="Submit"
+                class="small hollow button">
+             </div>
+           </div>
+        <!--{{ form.as_p }} -->
+         </div>
+        </div>
     </form>
   </div>
-  {% endif %}
+  <div class="large-7 columns">
+     <h4 align="center" style="background-color:#E5EBF7">
+     <a href="suggest_list">Menu</a></h4>
+     <div id="suggest_list">
+       <ul>
+         {% for element in content %}
+         <li>{{ element.menu}}</li>
+         {% endfor %}
+       </ul>
+     </div>
+   </div>
 </div>
 {% endblock %}
