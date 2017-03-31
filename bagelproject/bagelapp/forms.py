@@ -1,5 +1,5 @@
 from django import forms
-from .models import *
+
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 
@@ -19,6 +19,31 @@ class registration_form(UserCreationForm):
         if commit:
             user.save()
         return user
+
+class SuggestionForm(forms.Form):
+    suggestion = forms.CharField(
+        label='Suggestion',
+        max_length=140,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'enter suggestion'
+            }))
+
+class blog_form(forms.Form):
+    title = forms.CharField(
+        label='Title',
+        max_length=140,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'enter title of blog post'
+            }))
+    content = forms.CharField(
+        label='Title',
+        widget=forms.Textarea(attrs={
+            'placeholder': 'enter content of blog post'
+            }))
+    image=forms.ImageField(label="Image File")
+    image_description=forms.CharField(label="Image Description", max_length=144)
+
+
 
 class LoginForm(AuthenticationForm):
     username=forms.CharField(
