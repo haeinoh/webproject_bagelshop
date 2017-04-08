@@ -1,0 +1,14 @@
+{% extends 'default.html' %}
+{% block content %}
+    {% for order in orders %}
+    <div class="product">
+        <a href="/product/{{order.product.id}}">
+          <img src="{{product.image}}" />
+        </a>
+        <h5>{{order.product.name}}</h5>
+        <p>
+          Order in {{order.created}}
+        </p>
+    </div>
+    {% endfor %}
+  {% endblock %}

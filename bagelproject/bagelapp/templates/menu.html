@@ -6,44 +6,17 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
-  <div class="large-12 columns">
-    <h1><a href="">Community</a></h1>
-    <!-- <p>{{ submit }}</p> -->
+
+{% for product in products %}
+<div class="product">
+  <a href="/menu/{{product.id}}">
+    <img src="{{product.image}}" />
+  </a>
+  <h5>{{product.name}}</h5>
+  <div>
+    ${{product.price}}
   </div>
 </div>
-<div class="row">
-  <div class="large-5 columns">
-    <form action="" method="post">
-      {% csrf_token %}
-        <div class="row">
-         <div class="large-12 columns">
-           <div class="input-group-field">
-             {{ form.errors}}
-             {{ form.menu.label}}
-             {{ form.menu}}
-           </div>
-           <div class="input-group-button">
-             <div class="large-12 columns">
-               <input type="submit" value="Submit"
-                class="small hollow button">
-             </div>
-           </div>
-        <!--{{ form.as_p }} -->
-         </div>
-        </div>
-    </form>
-  </div>
-  <div class="large-7 columns">
-     <h4 align="center" style="background-color:#E5EBF7">
-     <a href="suggest_list">Menu</a></h4>
-     <div id="suggest_list">
-       <ul>
-         {% for element in content %}
-         <li>{{ element.menu}}</li>
-         {% endfor %}
-       </ul>
-     </div>
-   </div>
-</div>
+    {% endfor %}
+
 {% endblock %}

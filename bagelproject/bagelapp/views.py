@@ -9,10 +9,88 @@ from .models import *
 from .forms import *
 
 def index(request):
+    if request.method == 'POST':
+        form = SuggestionForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            submit = form.cleaned_data['suggestion']
+            suggest = Suggestion(suggestion=submit)
+            suggest.save()
+            # process the data in form.cleaned_data as required
+            form = SuggestionForm()
+        else:
+            submit = ""
+    else:
+        form = SuggestionForm()
+        submit = ""
+    suggestions = Suggestion.objects.all()
     context = {
         'title':"Home",
-    }
+        'content': suggestions,
+        'form':form,
+        'submit':submit
+        }
     return render(request,'home.html',context)
+
+@csrf_exempt
+def suggestions(request):
+    if request.method == 'GET':
+        suggestions = Suggestion.objects.all()
+        suggest = {}
+        suggest['suggestions']=[]
+        for suggestion in suggestions:
+            suggest['suggestions']+=[{
+                'id':suggestion.id,
+                'suggestion': suggestion.suggestion
+                }]
+        return JsonResponse(suggest)
+    if request.method == 'POST':
+        return HttpResponse("POST successful")
+    return HttpResponse("404")
+
+def menu_post(request):
+    context = {
+        'title':"Menu",
+    }
+    return render(request, 'menu.html', context)
+
+def custom_recipe(request):
+    if request.method == 'POST':
+        form = custom_form(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user = authenticate(
+                username=form.cleaned_data.get('username'),
+                password=form.cleaned_data.get('password1')
+            )
+            login(request,user)
+            return HttpResponseRedirect('/')
+    else:
+        form = custom_form()
+    context = {
+        'title':'Register',
+        'form':form
+    }
+    return render(request,'custom.html', context)
+
+def order_post(request):
+    if request.method == 'POST':
+        form = order_form(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user = authenticate(
+                username=form.cleaned_data.get('username'),
+                password=form.cleaned_data.get('password1')
+            )
+            login(request,user)
+            return HttpResponseRedirect('/')
+    else:
+        form = order_form()
+    context = {
+        'title':'Register',
+        'form':form
+    }
+    return render(request, 'order.html', context)
 
 def register(request):
     if request.method == 'POST':
