@@ -2,6 +2,7 @@ from django import forms
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from .models import Product, Custom, Order
 
 class registration_form(UserCreationForm):
     email = forms.EmailField(
@@ -33,15 +34,15 @@ class custom_form(forms.Form):
         label='Title',
         max_length=140,
         widget=forms.TextInput(attrs={
-            'placeholder': 'enter title of blog post'
+            'placeholder': 'enter title of custom post'
             }))
     content = forms.CharField(
         label='Title',
         widget=forms.Textarea(attrs={
-            'placeholder': 'enter content of blog post'
+            'placeholder': 'enter content of custom post'
             }))
     image=forms.ImageField(label="Image File")
-    image_description=forms.CharField(label="Image Description", max_length=144)
+    description=forms.CharField(label="Description", max_length=144)
 
 class order_form(forms.Form):
     title = forms.CharField(
