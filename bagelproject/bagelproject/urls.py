@@ -29,5 +29,4 @@ urlpatterns = [
     url(r'logout/$', views.logout,{
         'next_page':'/login'
     }),
-    url(r'^shopping-cart/', include('shopping.urls')),
 ]

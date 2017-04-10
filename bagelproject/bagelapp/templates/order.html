@@ -1,4 +1,10 @@
 {% extends 'default.html' %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
 {% block content %}
     {% for order in orders %}
     <div class="product">
@@ -11,4 +17,4 @@
         </p>
     </div>
     {% endfor %}
-  {% endblock %}
+{% endblock %}

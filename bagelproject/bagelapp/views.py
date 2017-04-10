@@ -5,7 +5,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from carton.cart import Cart
-from carton.tests.models import Product
 
 from .models import *
 from .forms import *
@@ -50,14 +49,14 @@ def suggestions(request):
         return HttpResponse("POST successful")
     return HttpResponse("404")
 
-def menu_post(request):
-    products = Product.objects.all
+def products(request):
+    products = productform.objects.all
     context = {
-        'name':"Product",
+        'title':'Product',
     }
     return render(request, 'menu.html', context)
 
-def custom_recipe(request):
+def custom(request):
     if request.method == 'POST':
         form = custom_form(request.POST)
         if form.is_valid():
@@ -71,12 +70,12 @@ def custom_recipe(request):
     else:
         form = custom_form()
     context = {
-        'title':'Register',
+        'title':'Custom_recipe',
         'form':form
     }
     return render(request,'custom.html', context)
 
-def order_post(request):
+def orders(request):
     if request.method == 'POST':
         form = order_form(request.POST)
         if form.is_valid():
@@ -90,7 +89,7 @@ def order_post(request):
     else:
         form = order_form()
     context = {
-        'title':'Register',
+        'title':'Order',
         'form':form
     }
     return render(request, 'order.html', context)

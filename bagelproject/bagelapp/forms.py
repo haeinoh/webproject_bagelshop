@@ -29,6 +29,14 @@ class SuggestionForm(forms.Form):
             'placeholder': 'enter suggestion'
             }))
 
+class productform(forms.Form):
+    product = forms.CharField(
+        label='Products',
+        max_length=140,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'enter suggestion'
+            }))
+
 class custom_form(forms.Form):
     title = forms.CharField(
         label='Title',
