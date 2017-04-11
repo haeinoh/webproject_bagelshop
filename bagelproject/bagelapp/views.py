@@ -50,22 +50,23 @@ def suggestions(request):
     return HttpResponse("404")
 
 def products(request):
-    products = productform.objects.all
-    context = {
-        'title':'Product',
-    }
-    return render(request, 'menu.html', context)
+    if request.method == "POST":
+        form = product_form(request.POST)
+        if form.is_valid():
+            form.save(request)
+            return HttpResponseRedirect('/')
+        else:
+            form = product_form()
+            context = {
+                'form':form
+            }
+        return render(request, 'menu.html', context)
 
 def custom(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = custom_form(request.POST)
         if form.is_valid():
-            user = form.save()
-            user = authenticate(
-                username=form.cleaned_data.get('username'),
-                password=form.cleaned_data.get('password1')
-            )
-            login(request,user)
+            form.save(request)
             return HttpResponseRedirect('/')
     else:
         form = custom_form()

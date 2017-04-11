@@ -29,13 +29,13 @@ class SuggestionForm(forms.Form):
             'placeholder': 'enter suggestion'
             }))
 
-class productform(forms.Form):
-    product = forms.CharField(
-        label='Products',
-        max_length=140,
-        widget=forms.TextInput(attrs={
-            'placeholder': 'enter suggestion'
-            }))
+#class product_form(forms.Form):
+#    title = forms.CharField(
+#        label='Title',
+#        max_length=140,
+#        widget=forms.TextInput(attrs={
+#            'placeholder': 'enter title of custom post'
+#            }))
 
 class custom_form(forms.Form):
     title = forms.CharField(
@@ -45,25 +45,12 @@ class custom_form(forms.Form):
             'placeholder': 'enter title of custom post'
             }))
     content = forms.CharField(
-        label='Title',
+        label='Content',
         widget=forms.Textarea(attrs={
             'placeholder': 'enter content of custom post'
             }))
     image=forms.ImageField(label="Image File")
     description=forms.CharField(label="Description", max_length=144)
-
-class order_form(forms.Form):
-    title = forms.CharField(
-        label='Title',
-        max_length=140,
-        widget=forms.TextInput(attrs={
-            'placeholder': 'enter title of blog post'
-            }))
-    content = forms.CharField(
-        label='Title',
-        widget=forms.Textarea(attrs={
-            'placeholder': 'enter content of blog post'
-            }))
 
 class LoginForm(AuthenticationForm):
     username=forms.CharField(

@@ -7,17 +7,14 @@
 
 {% block content %}
 <div calss="row medium-8 large-7 columns">
+<h4 align="center" style="background-color:#E5EBF7">
+      <a href="menu">Menu</a> </h4>
+      <div id="menu">
 <ul>
-{% for product in products %}
-    <div class="product">
-      <li>{{product.title}}</li>
-    <!--  <img class="thumbnail", alt="{{product.description}}"
-      src="{{product.image}}">
-      <div>
-        ${{product.price}}
-      </div>-->
-    </div>
+{% for element in content %}
+      <li>{{ element.product }} </li>
 {% endfor %}
 </ul>
+</div>
 </div>
 {% endblock %}
