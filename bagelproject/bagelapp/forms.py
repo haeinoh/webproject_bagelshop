@@ -29,13 +29,13 @@ class SuggestionForm(forms.Form):
             'placeholder': 'enter suggestion'
             }))
 
-#class product_form(forms.Form):
-#    title = forms.CharField(
-#        label='Title',
-#        max_length=140,
-#        widget=forms.TextInput(attrs={
-#            'placeholder': 'enter title of custom post'
-#            }))
+class product_form(forms.Form):
+    form = forms.CharField(
+        label='Title',
+        max_length=140,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'enter title of custom post'
+            }))
 
 class custom_form(forms.Form):
     title = forms.CharField(

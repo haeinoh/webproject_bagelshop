@@ -53,11 +53,16 @@ def products(request):
     if request.method == "POST":
         form = product_form(request.POST)
         if form.is_valid():
-            form.save(request)
+            form.save()
+            form = product_form()
             return HttpResponseRedirect('/')
         else:
+
+    else:
             form = product_form()
+            proudct = product.objects.all()
             context = {
+                'title':"Menu"
                 'form':form
             }
         return render(request, 'menu.html', context)
