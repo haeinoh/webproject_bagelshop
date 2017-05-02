@@ -57,13 +57,10 @@ def products(request):
             form = product_form()
             return HttpResponseRedirect('/')
         else:
-
-    else:
             form = product_form()
             proudct = product.objects.all()
             context = {
                 'title':"Menu"
-                'form':form
             }
         return render(request, 'menu.html', context)
 
