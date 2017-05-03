@@ -9975,3 +9975,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   // Window exports
   Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');
 }(jQuery);
+
+$('[data-toggle-menu]').on("click", function(){
+  $("#overlay-nav-menu").toggleClass("is-open");
+});

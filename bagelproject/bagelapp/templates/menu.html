@@ -27,21 +27,44 @@ Menu
     </ul>
   </div>
 </div>
-</header>
 
-<div class="row">
- <div calss="medium-6 medium-centered large-4 large-centered columns">
-  <form method="post" action="" enctype="multipart/form-data">
-      {% csrf_token %}
-        <div class ="row column">
-          <h4 class="text-center">Menu</h4>
-            {{form.errors}}
-            {% for product in products %}
-              {{product.name}}
-              {{product.price}}
-            {% endfor %}
+<div class="featured-image-block-grid">
+ <!--<nav role="navigation">
+  <ul id="overlay-nav-menu" class="overlay-nav-menu">-->
+
+    <li><a href="/menu/bagel">Bagel</a></li>
+      <div class="row large-up-4 small-up-2">
+          <div class="featured-image-block column">
+            <a href="#">
+              <img src="{% static "choco bagel.png" %}"/>
+                <p class="text-center featured-image-block-title">Choco Bagel</p>
+            </a>
+          </div>
+      <div class="featured-image-block column">
+           <a href="#">
+              <img src="{% static "cheese bagel.png" %}" />
+                <p class="text-center featured-image-block-title">Cheese bagel</p>
+            </a>
+      </div>
+     </div>
+<!-- creme cheese -->
+     <li><a href="/menu/cremecheese">Creme Cheese</a></li>
+       <div class="row large-up-4 small-up-2">
+           <div class="featured-image-block column">
+             <a href="#">
+               <img src="{% static "honey creme.png" %}"/>
+                 <p class="text-center featured-image-block-title">Honey creme cheese</p>
+             </a>
+           </div>
+       <div class="featured-image-block column">
+            <a href="#">
+               <img src="{% static "cheese bagel.png" %}" />
+                 <p class="text-center featured-image-block-title">Cheese bagel</p>
+             </a>
        </div>
-  </form>
- </div>
-</div>
+      </div>
+    <!-- </ul>
+     <a data-toggle-menu class="overlay-nav-menu-toggle" href="#overlay-nav-menu"><i class="fa fa-plus"></i></a>
+   </nav> -->
+  </div>
 {% endblock %}
