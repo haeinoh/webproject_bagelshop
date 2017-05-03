@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from django.contrib.auth import views
-from bagelapp.forms import LoginForm
+from bagelapp.forms import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'logout/$', views.logout,{
         'next_page':'/login'
     }),
+
 ]

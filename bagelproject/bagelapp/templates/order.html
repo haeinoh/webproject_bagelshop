@@ -6,15 +6,38 @@
 {% endblock %}
 
 {% block content %}
-    {% for order in orders %}
-    <div class="product">
-        <a href="/product/{{order.product.id}}">
-          <img src="{{product.image}}" />
-        </a>
-        <h5>{{order.product.name}}</h5>
-        <p>
-          Order in {{order.created}}
-        </p>
-    </div>
-    {% endfor %}
+<div class="top-bar" id="main-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">J&S Bagel</li>
+      <li><a href="/menu">MENU</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="/custom_recipe">CUSTOM RECIPE</a></li>
+      <li><a href="/order">ORDER</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="dropdown menu" data-dropdown-menu>
+      {% if user.is_authenticated %}
+      <li><a href="/logout/">Logout</a></li>
+      {% else %}
+      <li><a href="/login/">Log In</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+</header>
+
+<div class="row">
+ <div calss="medium-6 medium-centered large-4 large-centered columns">
+  <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class ="row column">
+          <h4 class="text-center">Order</h4>
+
+       </div>
+  </form>
+ </div>
+</div>
 {% endblock %}

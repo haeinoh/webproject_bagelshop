@@ -55,6 +55,17 @@ class custom_form(forms.Form):
     image=forms.ImageField(label="Image File")
     description=forms.CharField(label="Description", max_length=144)
 
+class order_form(forms.Form):
+    name = forms.CharField(
+        label='Name',
+        max_length=140,
+        widget=forms.TextInput(attrs={
+            'placeholder': 'enter name of product'
+            }))
+    price = forms.IntegerField(label="price",label_suffix='$')
+    image=forms.ImageField(label="Image")
+    description=forms.CharField(label="Image Description", max_length=144)
+
 class LoginForm(AuthenticationForm):
     username=forms.CharField(
         label="Username",
