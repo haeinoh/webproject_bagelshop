@@ -40,11 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bagelapp',
-
-    #'cart',
-    #'carton',
-    #'shopping',
-    #'products',
 ]
 
 MIDDLEWARE = [

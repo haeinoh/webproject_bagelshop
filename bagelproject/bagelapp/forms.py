@@ -2,7 +2,7 @@ from django import forms
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Product, Custom, Order
+from .models import *
 
 class registration_form(UserCreationForm):
     email = forms.EmailField(
@@ -30,12 +30,15 @@ class SuggestionForm(forms.Form):
             }))
 
 class product_form(forms.Form):
-    form = forms.CharField(
-        label='Title',
+    name = forms.CharField(
+        label='Name',
         max_length=140,
         widget=forms.TextInput(attrs={
-            'placeholder': 'enter title of custom post'
+            'placeholder': 'enter name of product'
             }))
+    price = forms.IntegerField(label="price",label_suffix='$')
+    image=forms.ImageField(label="Image")
+    description=forms.CharField(label="Image Description", max_length=144)
 
 class custom_form(forms.Form):
     title = forms.CharField(

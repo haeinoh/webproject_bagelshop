@@ -8,13 +8,10 @@ class Suggestion(models.Model):
         return self.suggestion
 
 class Product(models.Model):
-    title = models.CharField(max_length=140)
-    image = models.ImageField()
-    price = models.IntegerField()
+    name = models.CharField(max_length=140)
+    image = models.ImageField(upload_to='uploads/%Y/%m/%d')
+    price = models.IntegerField(default=0)
     description = models.TextField()
-
-    def __str__(self):
-        return self.title
 
 class Comment(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -28,9 +25,9 @@ class Custom(models.Model):
     content = models.TextField()
     author = models.ForeignKey(User, null=True, blank=True)
     comments = models.ManyToManyField('Comment')
-    image = models.ImageField()
+    image = models.ImageField(upload_to='uploads/%Y/%m/%d')
 
 class Order(models.Model):
      author = models.ForeignKey(User, null=True, blank=True)
-     product = models.ForeignKey(Product)
+     product = models.ForeignKey(Product, null=True, blank=True)
      timestamp = models.DateTimeField(auto_now_add=True)

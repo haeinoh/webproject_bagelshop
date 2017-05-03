@@ -4,7 +4,6 @@ from django.template import Template, Context
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from carton.cart import Cart
 
 from .models import *
 from .forms import *
@@ -54,15 +53,13 @@ def products(request):
         form = product_form(request.POST)
         if form.is_valid():
             form.save()
-            form = product_form()
             return HttpResponseRedirect('/')
-        else:
+    else:
             form = product_form()
-            proudct = product.objects.all()
             context = {
-                'title':"Menu"
+                'form':form
             }
-        return render(request, 'menu.html', context)
+    return render(request, 'menu.html', context)
 
 def custom(request):
     if request.method == "POST":

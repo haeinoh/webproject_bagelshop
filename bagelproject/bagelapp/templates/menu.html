@@ -2,19 +2,53 @@
 {% load static %}
 
 {% block title %}
-{{ title }}
+Menu
 {% endblock %}
 
 {% block content %}
-<div calss="row medium-8 large-7 columns">
-<h4 align="center" style="background-color:#E5EBF7">
-      <a href="menu">Menu</a> </h4>
-      <div id="menu">
-<ul>
-{% for element in content %}
-      <li>{{ element.product }} </li>
-{% endfor %}
-</ul>
+<div class="top-bar" id="main-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">J&S Bagel</li>
+      <li><a href="/menu">MENU</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="/custom_recipe">CUSTOM RECIPE</a></li>
+      <li><a href="/order">ORDER</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="dropdown menu" data-dropdown-menu>
+      {% if user.is_authenticated %}
+      <li><a href="/logout/">Logout</a></li>
+      {% else %}
+      <li><a href="/login/">Log In</a></li>
+      {% endif %}
+    </ul>
+  </div>
 </div>
+</header>
+
+<div class="row">
+ <div calss="medium-6 medium-centered large-4 large-centered columns">
+  <form method="post" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class ="row column">
+          <h4 class="text-center">Menu</h4>
+            {{form.errors}}
+            <label> {{form.name.label_tag}}</label>
+              {{form.name}}
+
+            <label> {{form.image.label_tag}}</label>
+              {{form.image}}
+
+            <label> {{form.price.label_tag}}</label>
+              {{form.price}}
+
+            <label> {{form.description.label_tag}}</label>
+              {{form.label_tag}}
+       </div>
+  </form>
+ </div>
 </div>
 {% endblock %}
