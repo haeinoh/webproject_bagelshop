@@ -28,43 +28,59 @@ Menu
   </div>
 </div>
 
-<div class="featured-image-block-grid">
- <!--<nav role="navigation">
-  <ul id="overlay-nav-menu" class="overlay-nav-menu">-->
-
-    <li><a href="/menu/bagel">Bagel</a></li>
-      <div class="row large-up-4 small-up-2">
-          <div class="featured-image-block column">
-            <a href="#">
-              <img src="{% static "choco bagel.png" %}"/>
-                <p class="text-center featured-image-block-title">Choco Bagel</p>
-            </a>
+<div class="top-bar-container" data-sticky-container>
+  <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
+    <div class="top-bar">
+      <div class="top-bar-left">
+    <!-- <ul class="dropdown menu" data-dropdown-menu> -->
+          <li class="menu-text">MENU</li>
+          <li class="has-submenu">
+            <a href="/menu/bagel">BAGEL</a>
+            <!--<ul class="submenu menu vertical" data-submenu> -->
+              <div class="row large-up-4 small-up-2">
+                  <div class="featured-image-block column">
+                    <a href="#">
+                      <img src="{% static "choco bagel.png" %}"/>
+                        <p class="text-center featured-image-block-title">Choco Bagel</p>
+                    </a>
+                  </div>
+              <div class="featured-image-block column">
+                   <a href="#">
+                      <img src="{% static "cheese bagel.png" %}" />
+                        <p class="text-center featured-image-block-title">Cheese bagel</p>
+                    </a>
+              </div>
+            </div>
+          <!--  </ul> -->
+          </li>
+          <li class="has-submenu">
+            <a href="/menu/creme_cheese">CREME CHEESE</a>
+            <!--<ul class="submenu menu vertical" data-submenu> -->
+            <div class="row large-up-4 small-up-2">
+                <div class="featured-image-block column">
+                  <a href="#">
+                    <img src="{% static "honey creme.png" %}"/>
+                      <p class="text-center featured-image-block-title">Honey creme cheese</p>
+                  </a>
+                </div>
+            <div class="featured-image-block column">
+                 <a href="#">
+                    <img src="{% static "sweet potato creme.png" %}" />
+                      <p class="text-center featured-image-block-title">Sweet Potato Creme Cheese</p>
+                  </a>
+            </div>
           </div>
-      <div class="featured-image-block column">
-           <a href="#">
-              <img src="{% static "cheese bagel.png" %}" />
-                <p class="text-center featured-image-block-title">Cheese bagel</p>
-            </a>
-      </div>
-     </div>
-<!-- creme cheese -->
-     <li><a href="/menu/cremecheese">Creme Cheese</a></li>
-       <div class="row large-up-4 small-up-2">
-           <div class="featured-image-block column">
-             <a href="#">
-               <img src="{% static "honey creme.png" %}"/>
-                 <p class="text-center featured-image-block-title">Honey creme cheese</p>
-             </a>
-           </div>
-       <div class="featured-image-block column">
-            <a href="#">
-               <img src="{% static "cheese bagel.png" %}" />
-                 <p class="text-center featured-image-block-title">Cheese bagel</p>
-             </a>
-       </div>
-      </div>
-    <!-- </ul>
-     <a data-toggle-menu class="overlay-nav-menu-toggle" href="#overlay-nav-menu"><i class="fa fa-plus"></i></a>
-   </nav> -->
+          <!--  </ul> -->
+          </li>
+      <!--  </ul> -->
   </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+ </div>
+</div>
+</div>
 {% endblock %}
