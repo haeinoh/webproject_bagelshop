@@ -9,7 +9,7 @@ class Suggestion(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=140)
-    image = models.ImageField(upload_to='uploads/%Y/%m/%d')
+    image = models.ImageField(upload_to='uploads/%Y/%m/%d',null=True, blank=True)
     price = models.IntegerField(default=0)
     description = models.TextField()
 
@@ -25,7 +25,7 @@ class Custom(models.Model):
     content = models.TextField()
     author = models.ForeignKey(User, null=True, blank=True)
     comments = models.ManyToManyField('Comment')
-    image = models.ImageField(upload_to='uploads/%Y/%m/%d')
+    image = models.ImageField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
 
 class Order(models.Model):
      author = models.ForeignKey(User, null=True, blank=True)
