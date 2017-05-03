@@ -36,17 +36,10 @@ Menu
         <div class ="row column">
           <h4 class="text-center">Menu</h4>
             {{form.errors}}
-            <label> {{form.name.label_tag}}</label>
-              {{form.name}}
-
-            <label> {{form.image.label_tag}}</label>
-              {{form.image}}
-
-            <label> {{form.price.label_tag}}</label>
-              {{form.price}}
-
-            <label> {{form.description.label_tag}}</label>
-              {{form.label_tag}}
+            {% for product in products %}
+              {{product.name}}
+              {{product.price}}
+            {% endfor %}
        </div>
   </form>
  </div>
