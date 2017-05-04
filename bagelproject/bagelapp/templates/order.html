@@ -9,11 +9,11 @@
 <div class="top-bar" id="main-menu">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">J&S Bagel</li>
+      <li class="menu-text"><a href="/">J&S Bagel</a></li>
       <li><a href="/menu">MENU</a></li>
       {% if user.is_authenticated %}
       <li><a href="/custom_recipe">CUSTOM RECIPE</a></li>
-      <li><a href="/order">ORDER</a></li>
+      <li><a href="/order"><font color="black">ORDER</font></a></li>
       {% endif %}
     </ul>
   </div>
@@ -29,43 +29,175 @@
 </div>
 </header>
 
-<div class="row align-center">
-  <div class="product-details column medium-6 center-text-for-small-only">
-    <h2>Bagel</h2>
-    <p class="product-description">Choose your bagel</p>
-      <div class="row">
-        <div class="column small-12 large-6">
-            <form class="product-option-selection">
-              <div class="product-option-thumbnail">
-                <a href="#"><img src="{% static "cheese bagel.png" %}"/></a>
-              </div>
-              <div class="product-option-thumbnail">
-                <a href="#"><img src="{% static "cranberry bagel.png" %}"/></a>
-              </div>
-            </form>
-        </div>
-        <div class="column small-10 large-6">
-          <h6 class="product-color-title">Size</h6>
-            <form class="product-option-selection">
-                <select>
-                  <option value="husker">Small</option>
-                  <option value="starbuck">Medium</option>
-                  <option value="hotdog">Large</option>
-                  <option value="apollo">X-Large</option>
-                  <option value="apollo">XX-Large</option>
-                </select>
-              </label>
-            </form>
-        </div>
+
+<h5><font color="midnightblue">Bagel</font></h5>
+ <div class="row">
+   <div class="column small-12 large-6">
+     <div class="product-card">
+       <div class="product-card-thumbnail">
+         <a href="#"><img src="{% static "choco bagel.png" %}"/></a>
+       </div>
+       <h2 class="product-card-title"><a href="#">Choco Bagel</a></h2>
+       <span class="product-card-desc">Chocolatechip bagel</span>
+       <span class="product-card-price">$3.00</span>
+     </div>
+
+     <div class="product-card">
+       <div class="product-card-thumbnail">
+         <a href="#"><img src="{% static "cheese bagel.png" %}"/></a>
+       </div>
+       <h2 class="product-card-title"><a href="#">Cheese Bagel</a></h2>
+       <span class="product-card-desc">Topped with cheese</span>
+       <span class="product-card-price">$4.00</span>
+     </div>
+     <div class="product-card">
+       <div class="product-card-thumbnail">
+         <a href="#"><img src="{% static "cranberry bagel.png" %}"/></a>
+       </div>
+       <h2 class="product-card-title"><a href="#">Cranberry Bagel</a></h2>
+       <span class="product-card-desc">Dried cranberries</span>
+       <span class="product-card-price">$4.00</span>
+     </div>
+     <div class="product-card">
+       <div class="product-card-thumbnail">
+         <a href="#"><img src="{% static "green tea.png" %}"/></a>
+       </div>
+       <h2 class="product-card-title"><a href="#">Green Tea Bagel</a></h2>
+       <span class="product-card-desc">The fragrance of matcha</span>
+       <span class="product-card-price">$3.00</span>
+     </div>
+     <div class="product-card">
+       <div class="product-card-thumbnail">
+         <a href="#"><img src="{% static "blueberry.png" %}"/></a>
+       </div>
+       <h2 class="product-card-title"><a href="#">Blueberry Bagel</a></h2>
+       <span class="product-card-desc">Product Description</span>
+       <span class="product-card-price">$3.00</span>
+     </div>
+     <div class="product-card">
+       <div class="product-card-thumbnail">
+         <a href="#"><img src="{% static "cinnamon raison.png" %}"/></a>
+       </div>
+       <h2 class="product-card-title"><a href="#">Cinnamon Raison Bagel</a></h2>
+       <span class="product-card-desc">Homemad cinnamon Raison</span>
+       <span class="product-card-price">$4.00</span>
+     </div>
+     <div class="product-card">
+       <div class="product-card-thumbnail">
+         <a href="#"><img src="{% static "whole wheat.png" %}"/></a>
+       </div>
+       <h2 class="product-card-title"><a href="#">Whole Wheat Bagel</a></h2>
+       <span class="product-card-desc">100% Whole Wheat</span>
+       <span class="product-card-price">$3.00</span>
+     </div>
+     <div class="product-card">
+       <div class="product-card-thumbnail">
+         <a href="#"><img src="{% static "plain bagel.png" %}"/></a>
+       </div>
+       <h2 class="product-card-title"><a href="#">Plain Bagel</a></h2>
+       <span class="product-card-desc">Classic plain bagle</span>
+       <span class="product-card-price">$3.00</span>
+     </div>
+     <div class="product-card">
+       <div class="product-card-thumbnail">
+         <a href="#"><img src="{% static "onion.png" %}"/></a>
+       </div>
+       <h2 class="product-card-title"><a href="#">Onion Bagel</a></h2>
+       <span class="product-card-desc">Onion flavor</span>
+       <span class="product-card-price">$3.00</span>
+     </div>
+   </div>
+ </div>
+</div>
+
+<div id="Creme Cheese" class="tabcontent">
+ <h5><font color="midnightblue">Creme Cheese</font></h5>
+    <div class="product-card">
+      <div class="product-card-thumbnail">
+        <a href="#"><img src="{% static "apple cinnamon creme.png" %}"/></a>
       </div>
-      <div class="product-details-add-to-cart">
-        <hr>
-        <p class="price">$19.99</p>
-        <p> <span>Qty:</span> <input class="qty" type="text" value="1"> </p>
-        <button class="button expanded">Add to Cart</button>
+      <h2 class="product-card-title"><a href="#">Apple Cinnamon</a></h2>
+      <span class="product-card-desc">Cinnamon with Apple</span>
+      <span class="product-card-price">$2.00</span>
+    </div>
+    <div class="product-card">
+      <div class="product-card-thumbnail">
+        <a href="#"><img src="{% static "balsamic onion creme.png" %}"/></a>
       </div>
-      <p class="shipping">Available for Free Ground Shipping &amp; Return</p>
-  </div>
+      <h2 class="product-card-title"><a href="#">Balsamic Onion</a></h2>
+      <span class="product-card-desc">Balsamic and Onion</span>
+      <span class="product-card-price">$3.00</span>
+    </div>
+    <div class="product-card">
+      <div class="product-card-thumbnail">
+        <a href="#"><img src="{% static "blueberry creme.png" %}"/></a>
+      </div>
+      <h2 class="product-card-title"><a href="#">Blueberry</a></h2>
+      <span class="product-card-desc">Fresh blueberry</span>
+      <span class="product-card-price">$3.00</span>
+    </div>
+    <div class="product-card">
+      <div class="product-card-thumbnail">
+        <a href="#"><img src="{% static "cranberry creme.png" %}"/></a>
+      </div>
+      <h2 class="product-card-title"><a href="#">Cranberry</a></h2>
+      <span class="product-card-desc">Delicious cranberry</span>
+      <span class="product-card-price">$3.00</span>
+    </div>
+    <div class="product-card">
+      <div class="product-card-thumbnail">
+        <a href="#"><img src="{% static "green tea creme.png" %}"/></a>
+      </div>
+      <h2 class="product-card-title"><a href="#">Green Tea</a></h2>
+      <span class="product-card-desc">Healthy Matcha Green Tea</span>
+      <span class="product-card-price">$2.00</span>
+    </div>
+    <div class="product-card">
+      <div class="product-card-thumbnail">
+        <a href="#"><img src="{% static "herb garlic creme.png" %}"/></a>
+      </div>
+      <h2 class="product-card-title"><a href="#">Herb Garlic</a></h2>
+      <span class="product-card-desc">Garlic&Herbs with cheese</span>
+      <span class="product-card-price">$3.00</span>
+    </div>
+    <div class="product-card">
+      <div class="product-card-thumbnail">
+        <a href="#"><img src="{% static "honey creme.png" %}"/></a>
+      </div>
+      <h2 class="product-card-title"><a href="#">Honey Almond</a></h2>
+      <span class="product-card-desc">Honey with toasted almonds</span>
+      <span class="product-card-price">$3.00</span>
+    </div>
+    <div class="product-card">
+      <div class="product-card-thumbnail">
+        <a href="#"><img src="{% static "oreo creme.png" %}"/></a>
+      </div>
+      <h2 class="product-card-title"><a href="#">Oreo</a></h2>
+      <span class="product-card-desc">Oreo Chocolatechip</span>
+      <span class="product-card-price">$2.00</span>
+    </div>
+    <div class="product-card">
+      <div class="product-card-thumbnail">
+        <a href="#"><img src="{% static "sweet potato creme.png" %}"/></a>
+      </div>
+      <h2 class="product-card-title"><a href="#">Sweet Potato</a></h2>
+      <span class="product-card-desc">Homemade Sweet Potato</span>
+      <span class="product-card-price">$2.00</span>
+    </div>
+    <div class="product-card">
+      <div class="product-card-thumbnail">
+        <a href="#"><img src="{% static "yogurt creme.png" %}"/></a>
+      </div>
+      <h2 class="product-card-title"><a href="#">Yogurt</a></h2>
+      <span class="product-card-desc">Plain yogurt</span>
+      <span class="product-card-price">$2.00</span>
+    </div>
+  </li>
+</div>
+
+<div id="Coffee" class="tabcontent">
+  <h5><font color="midnightblue">Coffee</font></h5>
+   <p>Waiting...</p>
 </div>
 
 {% endblock %}

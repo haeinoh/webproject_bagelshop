@@ -65,12 +65,13 @@ def custom(request):
     if request.method == "POST":
         form = custom_form(request.POST)
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/')
+            submit = form.cleaned_data['title']
+            customs = Custom(title=submit)
+            customs.save()
+            form = custom_form()
     else:
-        form = Custom()
+        form = custom_form()
     context = {
-        'title':'Custom_recipe',
         'form':form
     }
     return render(request,'custom.html', context)

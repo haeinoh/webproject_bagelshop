@@ -1,27 +1,33 @@
-{% load carton_tags %}
-<html>
-<body>
+{% extends "default.html" %}
+{% load static %}
 
-<h1>Shopping Cart</h1>
+{% block title %}
+Custom Recipe
+{% endblock %}
 
-{% get_cart as cart %}
+{% block content %}
+<div class="top-bar" id="main-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text"><a href="/">J&S Bagel</a></li>
+      <li><a href="/menu">MENU</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="/custom_recipe"><font color="black">CUSTOM RECIPE</font></a></li>
+      <li><a href="/order">ORDER</a></li>
+      {% endif %}
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="dropdown menu" data-dropdown-menu>
+      {% if user.is_authenticated %}
+      <li><a href="/logout/">Logout</a></li>
+      {% else %}
+      <li><a href="/login/">Log In</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
 
-    <table border="1">
-    <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Price</th>
-    </tr>
-    {% for item in cart.items %}
-    <tr>
-        <td>{{ item.product }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>{{ item.subtotal }}</td>
-    </tr>
-        {% endfor %}
-    </table>
 
-    Total: {{ cart.total }}
 
-</body>
-</html>
+{% endblock %}

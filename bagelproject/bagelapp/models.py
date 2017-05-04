@@ -27,6 +27,9 @@ class Custom(models.Model):
     comments = models.ManyToManyField('Comment')
     #image = models.ImageField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
 
+    def __str__(self):
+        return self.title
+
 class Order(models.Model):
      author = models.ForeignKey(User, null=True, blank=True)
      product = models.ForeignKey(Product, null=True, blank=True)

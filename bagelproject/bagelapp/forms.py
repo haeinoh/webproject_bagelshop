@@ -53,6 +53,15 @@ class custom_form(forms.Form):
             'placeholder': 'enter content of custom post'
             }))
 
+    def save(self, request, commit=True):
+        custom = Custom()
+        custom.title=self.cleaned_data["title"]
+        custom.content=self.cleaned_data["content"]
+        custom.author=request.user
+        if commit:
+            custom.save()
+        return custom
+
 class order_form(forms.Form):
     name = forms.CharField(
         label='Name',
