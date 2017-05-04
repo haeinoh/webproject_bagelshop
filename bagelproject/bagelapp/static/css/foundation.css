@@ -4837,3 +4837,33 @@ div.tab button.active {
    border: 1px solid #ccc;
    border-top: none;
 }
+
+
+.social {
+  margin-right: .25rem;
+}
+
+.social.twitter {
+  background-color: #55acee;
+  color: #fefefe;
+}
+
+.social.twitter:hover, .social.twitter:focus {
+  background-color: #1a8fe8;
+  color: #fefefe;
+}
+
+.social.instagram {
+  background-color: #125688;
+  color: #fefefe;
+}
+
+.social.instagram:hover, .social.instagram:focus {
+  background-color: #0e456d;
+  color: #fefefe;
+}
+
+.social > .fa {
+  color: #fefefe;
+  margin-right: .25rem;
+}
