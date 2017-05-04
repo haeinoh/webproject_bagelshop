@@ -25,7 +25,7 @@ class Custom(models.Model):
     content = models.TextField()
     author = models.ForeignKey(User, null=True, blank=True)
     comments = models.ManyToManyField('Comment')
-    image = models.ImageField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
+    #image = models.ImageField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
 
 class Order(models.Model):
      author = models.ForeignKey(User, null=True, blank=True)

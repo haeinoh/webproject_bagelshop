@@ -1,13 +1,20 @@
-{% extends "base.html" %}
+{% extends "default.html" %}
 {% load static %}
 
-{% block title %} Create Custom Recipe {% endblock %}
+{% block title %}
+Custom Recipe
+{% endblock %}
 
 {% block content %}
 <div class="top-bar" id="main-menu">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="menu-text">J&S Bagel</li>
+      <li><a href="/menu">MENU</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="/custom_recipe">CUSTOM RECIPE</a></li>
+      <li><a href="/order">ORDER</a></li>
+      {% endif %}
     </ul>
   </div>
   <div class="top-bar-right">
@@ -15,11 +22,12 @@
       {% if user.is_authenticated %}
       <li><a href="/logout/">Logout</a></li>
       {% else %}
-      <li class="menu-text">Log In</li>
+      <li><a href="/login/">Log In</a></li>
       {% endif %}
     </ul>
   </div>
 </div>
+
 {% if user.is_authenticated %}
 <div class="row">
   <div class="medium-6 medium-centered large-4 large-centered columns">

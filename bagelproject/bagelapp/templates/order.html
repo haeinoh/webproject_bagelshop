@@ -29,15 +29,43 @@
 </div>
 </header>
 
-<div class="row">
- <div calss="medium-6 medium-centered large-4 large-centered columns">
-  <form method="post" action="" enctype="multipart/form-data">
-      {% csrf_token %}
-        <div class ="row column">
-          <h4 class="text-center">Order</h4>
-
-       </div>
-  </form>
- </div>
+<div class="row align-center">
+  <div class="product-details column medium-6 center-text-for-small-only">
+    <h2>Bagel</h2>
+    <p class="product-description">Choose your bagel</p>
+      <div class="row">
+        <div class="column small-12 large-6">
+            <form class="product-option-selection">
+              <div class="product-option-thumbnail">
+                <a href="#"><img src="{% static "cheese bagel.png" %}"/></a>
+              </div>
+              <div class="product-option-thumbnail">
+                <a href="#"><img src="{% static "cranberry bagel.png" %}"/></a>
+              </div>
+            </form>
+        </div>
+        <div class="column small-10 large-6">
+          <h6 class="product-color-title">Size</h6>
+            <form class="product-option-selection">
+                <select>
+                  <option value="husker">Small</option>
+                  <option value="starbuck">Medium</option>
+                  <option value="hotdog">Large</option>
+                  <option value="apollo">X-Large</option>
+                  <option value="apollo">XX-Large</option>
+                </select>
+              </label>
+            </form>
+        </div>
+      </div>
+      <div class="product-details-add-to-cart">
+        <hr>
+        <p class="price">$19.99</p>
+        <p> <span>Qty:</span> <input class="qty" type="text" value="1"> </p>
+        <button class="button expanded">Add to Cart</button>
+      </div>
+      <p class="shipping">Available for Free Ground Shipping &amp; Return</p>
+  </div>
 </div>
+
 {% endblock %}

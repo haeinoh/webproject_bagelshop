@@ -52,8 +52,6 @@ class custom_form(forms.Form):
         widget=forms.Textarea(attrs={
             'placeholder': 'enter content of custom post'
             }))
-    image=forms.ImageField(label="Image File")
-    description=forms.CharField(label="Description", max_length=144)
 
 class order_form(forms.Form):
     name = forms.CharField(
