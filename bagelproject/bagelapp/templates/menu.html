@@ -32,48 +32,66 @@ Menu
   <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
     <div class="top-bar">
       <div class="top-bar-left">
-    <!-- <ul class="dropdown menu" data-dropdown-menu> -->
-          <li class="menu-text">MENU</li>
-          <li class="has-submenu">
-            <a href="/menu/bagel">BAGEL</a>
-            <!--<ul class="submenu menu vertical" data-submenu> -->
-              <div class="row large-up-4 small-up-2">
-                  <div class="featured-image-block column">
-                    <a href="#">
-                      <img src="{% static "choco bagel.png" %}"/>
-                        <p class="text-center featured-image-block-title">Choco Bagel</p>
-                    </a>
-                  </div>
-              <div class="featured-image-block column">
-                   <a href="#">
-                      <img src="{% static "cheese bagel.png" %}" />
-                        <p class="text-center featured-image-block-title">Cheese bagel</p>
-                    </a>
-              </div>
-            </div>
-          <!--  </ul> -->
-          </li>
-          <li class="has-submenu">
-            <a href="/menu/creme_cheese">CREME CHEESE</a>
-            <!--<ul class="submenu menu vertical" data-submenu> -->
-            <div class="row large-up-4 small-up-2">
-                <div class="featured-image-block column">
-                  <a href="#">
-                    <img src="{% static "honey creme.png" %}"/>
-                      <p class="text-center featured-image-block-title">Honey creme cheese</p>
-                  </a>
-                </div>
-            <div class="featured-image-block column">
-                 <a href="#">
-                    <img src="{% static "sweet potato creme.png" %}" />
-                      <p class="text-center featured-image-block-title">Sweet Potato Creme Cheese</p>
-                  </a>
-            </div>
-          </div>
-          <!--  </ul> -->
-          </li>
-      <!--  </ul> -->
-  </div>
+        <li class="menu-text">MENU</li>
+          <ul class = "menu">
+               <div class="product-card">
+                 <div class="product-card-thumbnail">
+                   <a href="#"><img src="{% static "choco bagel.png" %}"/></a>
+                 </div>
+                 <h2 class="product-card-title"><a href="#">Choco Bagel</a></h2>
+                 <span class="product-card-desc">Product Description</span>
+                 <span class="product-card-price">$3.00</span>
+               </div>
+               <div class="product-card">
+                 <div class="product-card-thumbnail">
+                   <a href="#"><img src="{% static "cheese bagel.png" %}"/></a>
+                 </div>
+                 <h2 class="product-card-title"><a href="#">Cheese Bagel</a></h2>
+                 <span class="product-card-desc">Product Description</span>
+                 <span class="product-card-price">$4.00</span>
+               </div>
+               <div class="product-card">
+                 <div class="product-card-thumbnail">
+                   <a href="#"><img src="{% static "cranberry bagel.png" %}"/></a>
+                 </div>
+                 <h2 class="product-card-title"><a href="#">Cranberry Bagel</a></h2>
+                 <span class="product-card-desc">Product Description</span>
+                 <span class="product-card-price">$3.00</span>
+               </div>
+               <div class="product-card">
+                 <div class="product-card-thumbnail">
+                   <a href="#"><img src="{% static "green tea.png" %}"/></a>
+                 </div>
+                 <h2 class="product-card-title"><a href="#">Green Tea Bagel</a></h2>
+                 <span class="product-card-desc">Product Description</span>
+                 <span class="product-card-price">$3.00</span>
+               </div>
+               <div class="product-card">
+                 <div class="product-card-thumbnail">
+                   <a href="#"><img src="{% static "blueberry.png" %}"/></a>
+                 </div>
+                 <h2 class="product-card-title"><a href="#">Blueberry Bagel</a></h2>
+                 <span class="product-card-desc">Product Description</span>
+                 <span class="product-card-price">$3.00</span>
+               </div>
+               <div class="product-card">
+                 <div class="product-card-thumbnail">
+                   <a href="#"><img src="{% static "cinnamon raison.png" %}"/></a>
+                 </div>
+                 <h2 class="product-card-title"><a href="#">Cinnamon Raison Bagel</a></h2>
+                 <span class="product-card-desc">Product Description</span>
+                 <span class="product-card-price">$3.00</span>
+               </div>
+               <div class="product-card">
+                 <div class="product-card-thumbnail">
+                   <a href="#"><img src="{% static "whole wheat.png" %}"/></a>
+                 </div>
+                 <h2 class="product-card-title"><a href="#">Whole Wheat Bagel</a></h2>
+                 <span class="product-card-desc">Product Description</span>
+                 <span class="product-card-price">$3.00</span>
+               </div>
+             </ul>
+      </div>
   <div class="top-bar-right">
     <ul class="menu">
       <li><input type="search" placeholder="Search"></li>
