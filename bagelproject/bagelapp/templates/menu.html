@@ -32,8 +32,8 @@ Menu
   <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
     <div class="top-bar">
       <div class="top-bar-left">
-        <li class="menu-text">MENU</li>
-          <ul class = "menu">
+          <ul class = "dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Bagel</li>
                <div class="product-card">
                  <div class="product-card-thumbnail">
                    <a href="#"><img src="{% static "choco bagel.png" %}"/></a>
@@ -90,7 +90,23 @@ Menu
                  <span class="product-card-desc">Product Description</span>
                  <span class="product-card-price">$3.00</span>
                </div>
-             </ul>
+               <div class="product-card">
+                 <div class="product-card-thumbnail">
+                   <a href="#"><img src="{% static "plain bagel.png" %}"/></a>
+                 </div>
+                 <h2 class="product-card-title"><a href="#">Plain Bagel</a></h2>
+                 <span class="product-card-desc">Product Description</span>
+                 <span class="product-card-price">$3.00</span>
+               </div>
+               <div class="product-card">
+                 <div class="product-card-thumbnail">
+                   <a href="#"><img src="{% static "onion.png" %}"/></a>
+                 </div>
+                 <h2 class="product-card-title"><a href="#">Onion Bagel</a></h2>
+                 <span class="product-card-desc">Product Description</span>
+                 <span class="product-card-price">$3.00</span>
+               </div>
+            </ul>
       </div>
   <div class="top-bar-right">
     <ul class="menu">
