@@ -24,8 +24,7 @@ class Custom(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     author = models.ForeignKey(User, null=True, blank=True)
-    comments = models.ManyToManyField('Comment')
-    #image = models.ImageField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
+    image = models.ImageField(upload_to='uploads/%Y/%m/%d', null=True, blank=True)
 
     def __str__(self):
         return self.title

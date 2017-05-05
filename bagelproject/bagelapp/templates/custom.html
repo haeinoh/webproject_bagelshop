@@ -29,13 +29,65 @@ Custom Recipe
   </div>
 </div>
 
+<!-- comments -->
+<div class="comment-section-container">
+  <h3>Comments (2)</h3>
+  <div class="comment-section-author">
+    <img src="http://placehold.it/50x50" alt="">
+    <div class="comment-section-name">
+      <h5><a href="">Janice Jones</a></h5>
+      <p>March 12, 2017 at 1:28pm</p>
+    </div>
+  </div>
+  <div class="comment-section-text">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis tenetur a voluptatibus quia
+      deserunt.
+    </p>
+  </div>
+  <div class="comment-section-author">
+    <img src="http://placehold.it/50x50" alt="">
+    <div class="comment-section-name">
+      <h5><a href="">Janice Jones</a></h5>
+      <p>March 12, 2017 at 1:28pm</p>
+    </div>
+  </div>
+  <div class="comment-section-text">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum facilis tenetur a voluptatibus quia deserunt.
+    </p>
+  </div>
+</div>
+<!--/comments-->
+
+<!-- comment form -->
+<form class="comment-section-form">
+  <div class="comment-section-box">
+    <div class="row">
+      <div class="small-12 column">
+        <h4>Leave a Comment</h4>
+        <label>Name
+          <input type="text">
+        </label>
+        <label>Email
+          <input type="text">
+        </label>
+        <label>Comment
+          <textarea rows="10" type="text"></textarea>
+        </label>
+        <button class="button expanded">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+<!--/comment box-->
+
 {% if user.is_authenticated %}
 <div class="row">
   <div class="medium-6 medium-centered large-4 large-centered columns">
     <form method="post" action="" enctype="multipart/form-data">
       {% csrf_token %}
+      <form class="comment-section-form">
       <div class="row column log-in-form">
-        <h4 class="text-center">Custom Recipe</h4>
+        <h4 class="text-center">Enter your Custom Recipe</h4>
         {{ form.errors }}
         <label>{{ form.title.label_tag }}
           {{ form.title }}
@@ -51,6 +103,7 @@ Custom Recipe
         </label>
         <input type="submit" class="button expanded" value="Post">
       </div>
+    </form>
     </form>
   </div>
   {% endif %}

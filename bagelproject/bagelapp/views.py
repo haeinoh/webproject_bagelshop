@@ -9,26 +9,9 @@ from .models import *
 from .forms import *
 
 def index(request):
-    if request.method == 'POST':
-        form = SuggestionForm(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            submit = form.cleaned_data['suggestion']
-            suggest = Suggestion(suggestion=submit)
-            suggest.save()
-            # process the data in form.cleaned_data as required
-            form = SuggestionForm()
-        else:
-            submit = ""
-    else:
-        form = SuggestionForm()
-        submit = ""
-    suggestions = Suggestion.objects.all()
     context = {
         'title':"Home",
-        'content': suggestions,
-        'form':form,
-        'submit':submit
+        'content': Custom.objects.all(),
         }
     return render(request,'home.html',context)
 

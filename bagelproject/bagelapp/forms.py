@@ -45,18 +45,20 @@ class custom_form(forms.Form):
         label='Title',
         max_length=140,
         widget=forms.TextInput(attrs={
-            'placeholder': 'enter title of custom post'
+            'placeholder': 'enter title of your recipe'
             }))
     content = forms.CharField(
         label='Content',
         widget=forms.Textarea(attrs={
-            'placeholder': 'enter content of custom post'
+            'placeholder': 'enter content of your recipe'
             }))
+    image=forms.ImageField(label="Image File")
 
     def save(self, request, commit=True):
         custom = Custom()
         custom.title=self.cleaned_data["title"]
         custom.content=self.cleaned_data["content"]
+        custom.image=self.cleaned_data["image"]
         custom.author=request.user
         if commit:
             custom.save()

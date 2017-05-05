@@ -34,7 +34,6 @@ J&S Bagel
 <!-- end top bar -->
       <img src="{% static "mainbagel.png" %}" alt="main page"/>
 
-
     <button type="button" class="button social twitter">
       <i class="fa fa-twitter" aria-hidden="true"></i>
       <a href="https://twitter.com/jandsbagel">Twitter</a>
@@ -43,5 +42,18 @@ J&S Bagel
       <i class="fa fa-instagram" aria-hidden="true"></i>
        <a href="https://instagram.com/jandsbagel">Instagram</a>
     </button>
+
+    {% for item in content %}
+        <div class="card-user-container">
+            <!--card's image-->
+          <div class="card-user-avatar">
+           <img src="media/{{ item.image }}" alt="" class="user-image">
+          </div>
+            <!--user info name, bio and location-->
+           <div class="card-user-bio">
+          <h4>Author: {{ item.author }}</h4>
+        <p>{{ item.content }} </p>
+      </div>
+    {% endfor %}
 
 {% endblock %}
