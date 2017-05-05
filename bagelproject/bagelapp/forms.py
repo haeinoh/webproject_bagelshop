@@ -52,12 +52,12 @@ class custom_form(forms.Form):
         widget=forms.Textarea(attrs={
             'placeholder': 'enter content of your recipe'
             }))
-    #image=forms.ImageField(label="Image File")
+    image=forms.ImageField(label="Image File")
     def save(self, request, commit=True):
         custom = Custom()
         custom.title=self.cleaned_data["title"]
         custom.content=self.cleaned_data["content"]
-        #custom.image=self.cleaned_data["image"]
+        custom.image=self.cleaned_data["image"]
         custom.author=request.user
         if commit:
             custom.save()

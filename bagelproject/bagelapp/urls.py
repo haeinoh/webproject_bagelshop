@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'custom_recipe',views.custom, name='custom'),
     url(r'custom_recipe/new', views.custom_new, name='custom_new'),
     url(r'order',views.orders,name='orders'),
+    url(r'order/add_to_cart', views.add_to_cart, name='add_to_cart'),
     url(r'cart',views.cart,name='cart'),
 ]
