@@ -14,10 +14,9 @@ def index(request):
         }
     return render(request,'home.html',context)
 
-def custom_new(request):
+def custom_post(request):
     context = {
-        'title':"Sweet",
-        'content': Custom.objects.all()[:10],
+        'content': Custom.objects.all(),
     }
     return render(request,'custom_new.html', context)
 
@@ -54,11 +53,12 @@ def custom(request):
     if request.method == "POST":
         form = custom_form(request.POST, request.FILES)
         if form.is_valid():
+            submit = form.cleaned_data['title']
             form.save(request)
-        return redirect('/custom_recipe')
     else:
         form = custom_form()
     context = {
+        'title':"Custom",
         'form':form
     }
     return render(request,'custom.html', context)
@@ -87,7 +87,7 @@ def add_to_cart(request, product_id, quantity):
     cart = Cart(request)
     cart.add(product, product.unit_price, quantity)
     return redirect('/cart')
-    
+
 def remove_from_cart(request, product_id):
     product = Product.objects.get(id=product_id)
     cart = Cart(request)

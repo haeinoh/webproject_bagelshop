@@ -53,6 +53,7 @@ class custom_form(forms.Form):
             'placeholder': 'enter content of your recipe'
             }))
     image=forms.ImageField(label="Image File")
+    
     def save(self, request, commit=True):
         custom = Custom()
         custom.title=self.cleaned_data["title"]

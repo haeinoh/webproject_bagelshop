@@ -29,6 +29,8 @@ Make Custom Recipe
   </div>
 </div>
 
+
+
 {% if user.is_authenticated %}
 <div class="row">
   <div class="medium-6 medium-centered large-4 large-centered columns">
@@ -53,6 +55,33 @@ Make Custom Recipe
     </form>
   </div>
   {% endif %}
+
 </div>
+
+<div class="comment-section-container">
+  <a href="/custom_recipe/posting">
+  <center><h5>Custom Recipe</h5></center>
+  <div class="comment-section-author">
+    <img src="{% static "reduce_choco.png" %}" alt="">
+    <div class="comment-section-name">
+      <h5><a href="">Bob</a></h5>
+    </div>
+  </div>
+  <div class="comment-section-text">
+    <p>Choco bagel with Yogurt creme cheese
+    </p>
+  </div>
+  <div class="comment-section-author">
+    <img src="{% static "reduce_green.png" %}" alt="">
+    <div class="comment-section-name">
+      <h5><a href="">hoh</a></h5>
+    </div>
+  </div>
+  <div class="comment-section-text">
+    <p> I like green tea with cranberry creme cheese, try it.</p>
+  </div>
+  </a>
+</div>
+
 
 {% endblock %}
