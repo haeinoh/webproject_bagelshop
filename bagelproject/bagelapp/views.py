@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.template import Template, Context
 from django.views.decorators.csrf import csrf_exempt
@@ -11,9 +11,15 @@ from .forms import *
 def index(request):
     context = {
         'title':"Home",
-        'content': Custom.objects.all(),
         }
     return render(request,'home.html',context)
+
+def custom_new(request):
+    context = {
+        'title':"Sweet",
+        'content': Custom.objects.all()[:10],
+    }
+    return render(request,'custom_new.html', context)
 
 @csrf_exempt
 def suggestions(request):
@@ -46,12 +52,10 @@ def products(request):
 
 def custom(request):
     if request.method == "POST":
-        form = custom_form(request.POST)
+        form = custom_form(request.POST, request.FILES)
         if form.is_valid():
-            submit = form.cleaned_data['title']
-            customs = Custom(title=submit)
-            customs.save()
-            form = custom_form()
+            form.save(request)
+        return redirect('/custom_recipe')
     else:
         form = custom_form()
     context = {

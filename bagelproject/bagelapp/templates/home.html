@@ -43,17 +43,4 @@ J&S Bagel
        <a href="https://instagram.com/jandsbagel">Instagram</a>
     </button>
 
-    {% for item in content %}
-        <div class="card-user-container">
-            <!--card's image-->
-          <div class="card-user-avatar">
-           <img src="media/{{ item.image }}" alt="" class="user-image">
-          </div>
-            <!--user info name, bio and location-->
-           <div class="card-user-bio">
-          <h4>Author: {{ item.author }}</h4>
-        <p>{{ item.content }} </p>
-      </div>
-    {% endfor %}
-
 {% endblock %}

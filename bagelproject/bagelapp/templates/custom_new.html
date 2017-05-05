@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-Make Custom Recipe
+Custom Recipe
 {% endblock %}
 
 {% block content %}
@@ -29,27 +29,14 @@ Make Custom Recipe
   </div>
 </div>
 
-{% if user.is_authenticated %}
-<div class="row">
-  <div class="medium-6 medium-centered large-4 large-centered columns">
-    <form method="post" action="" enctype="multipart/form-data">
-      {% csrf_token %}
-      <form class="comment-section-form">
-      <div class="row column log-in-form">
-        <h4 class="text-center">Enter your Custom Recipe</h4>
-        {{ form.errors }}
-        <label>{{ form.title.label_tag }}
-          {{ form.title }}
-        </label>
-        <label>{{ form.content.label_tag }}
-          {{ form.content }}
-        </label>
-        <input type="submit" class="button expanded" value="Post">
-      </div>
-    </form>
-    </form>
-  </div>
-  {% endif %}
+<div class="row medium-8 large-7 columns">
+ <a href="{% url 'custom_new' %}"></a>
+  {% for item in content %}
+    <div class="blog-post">
+        <p> {{ item.title }} </p>
+        <p> {{ item.content}} </p>
+    </div>
+  {% endfor %}
 </div>
 
 {% endblock %}
